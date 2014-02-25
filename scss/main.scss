@@ -91,13 +91,18 @@ textarea {
    Author's custom styles - fabian.frei@esf-frei.ch
    ========================================================================== */
 
+/* compass imports */
+
+@import "compass/css3/transition";
+
+
 /* colors */
 
 $background: #FDF6E3;
 $text: #708891;
 $emphasize: #00407A;
-$hover: #001D38;
-$extra: #F4E6BF;
+$extra: #00192E; //#001D38;
+$hover: #C5B893;
 
 html,
 body {
@@ -106,59 +111,37 @@ body {
 
 /* typo and font */
 
-@font-face {
-    font-family: 'nobileregular';
-    src: url('font/nobile/nobile-regular-webfont.eot');
-    src: url('font/nobile/nobile-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/nobile/nobile-regular-webfont.woff') format('woff'),
-         url('font/nobile/nobile-regular-webfont.ttf') format('truetype'),
-         url('font/nobile/nobile-regular-webfont.svg#nobileregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
+@import "font";
 
-@font-face {
-    font-family: 'nobilemedium';
-    src: url('font/nobile/nobile-medium-webfont.eot');
-    src: url('font/nobile/nobile-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('font/nobile/nobile-medium-webfont.woff') format('woff'),
-         url('font/nobile/nobile-medium-webfont.ttf') format('truetype'),
-         url('font/nobile/nobile-medium-webfont.svg#nobilemedium') format('svg');
-    font-weight: normal;
-    font-style: normal;
+h1 {
+    color: $emphasize;
+    @extend .bold;
 }
-
-.regular {
-    font-family: 'nobileregular', arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-}
-
-.bold {
-    font-family: 'nobilemedium', arial, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-}
-
-h1,
 h2,
 h3,
 h4 {
     color: $emphasize;
-    @extend .bold;
+    @extend .medium;
 }
 
 p,
+li,
 a {
     color: $text;
     @extend .regular;
-    strong {
-        @extend .bold;
-    }
+}
+strong {
+    color: $emphasize;
+    @extend .medium;
 }
 
 a {
+    color: $emphasize;
     text-decoration: none;
+    @include transition(color 0.5s);
+    &:hover {
+        text-decoration: underline;
+    }
     &:hover,
     &:visited {
         color: $hover;
@@ -182,40 +165,52 @@ a {
 
 header,
 #header {
-    text-transform: uppercase;
     @extend .outerWrapper;
-    position: relative;
     h1 {
-        padding: 0.5em 0;
+        font-size: 2.1em;
+        letter-spacing: 0.09em;
+        word-spacing: 0.12em;
+        padding: 0.5em 0 0 0;
+        margin-bottom: 0;
     }
-    .dunkel {
-        display: none;
-        background-color: $emphasize;
-        height: 25%;
-        position: absolute;
-        left: 0;
-        top: 25%;
-        overflow: hidden;
-        width: 100%;
-        h1 {
-            color: $background;
-            margin-top: 0;
-            position: relative;
-            top: -100%;
-            padding: 0;
+    h2 {
+        font-size: 0.8em;
+        width: 80%;
+        text-align: right;
+        a {
+            @extend .medium;
         }
     }
 }
 
 nav {
     @extend .outerWrapper;
+    margin-top: 2em;
+    margin-bottom: 2.2em;
     ul {
         list-style-type: none;
-        padding: 0;
+        padding: 0 0 1em 0;
         margin: 0;
+        border-bottom: 1px solid $emphasize; 
         li {
-            display: inline;
+            display: inline-block;
+            width: (100%/5.2);
+            text-align: center;
+            border-right: 1px solid $emphasize;
+            //height: 0.3em;
+            //vertical-align: middle;
+            &:last-child {
+                border: none;
+            }
+            a {
+                display: inline-block;
+                vertical-align: middle;
+            }
         }
+    }
+    #subnav {
+        border: none;
+        display: none;
     }
 }
 

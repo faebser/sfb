@@ -81,8 +81,9 @@ textarea {
 /* ==========================================================================
    Author's custom styles - fabian.frei@esf-frei.ch
    ========================================================================== */
+/* compass imports */
 /* colors */
-/* line 103, ../scss/main.scss */
+/* line 108, ../scss/main.scss */
 html,
 body {
   background-color: #fdf6e3; }
@@ -102,44 +103,73 @@ body {
   font-weight: normal;
   font-style: normal; }
 
-/* line 131, ../scss/main.scss */
+@font-face {
+  font-family: 'nobilebold';
+  src: url("font/nobile/nobile-bold-webfont.eot");
+  src: url("font/nobile/nobile-bold-webfont.eot?#iefix") format("embedded-opentype"), url("font/nobile/nobile-bold-webfont.woff") format("woff"), url("font/nobile/nobile-bold-webfont.ttf") format("truetype"), url("font/nobile/nobile-bold-webfont.svg#nobileregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 35, ../scss/_font.scss */
 .regular, p,
+li,
 a {
   font-family: 'nobileregular', arial, sans-serif;
   font-weight: normal;
   font-style: normal; }
 
-/* line 137, ../scss/main.scss */
-.bold, h1,
-h2,
+/* line 41, ../scss/_font.scss */
+.medium, h2,
 h3,
-h4, p strong,
-a strong {
+h4, strong, header h2 a,
+#header h2 a {
   font-family: 'nobilemedium', arial, sans-serif;
   font-weight: normal;
   font-style: normal; }
 
-/* line 146, ../scss/main.scss */
-h1,
+/* line 47, ../scss/_font.scss */
+.bold, h1 {
+  font-family: 'nobilebold', arial, sans-serif;
+  font-weight: normal;
+  font-style: normal; }
+
+/* line 116, ../scss/main.scss */
+h1 {
+  color: #00407a; }
+
+/* line 122, ../scss/main.scss */
 h2,
 h3,
 h4 {
   color: #00407a; }
 
-/* line 152, ../scss/main.scss */
+/* line 129, ../scss/main.scss */
 p,
+li,
 a {
   color: #708891; }
 
-/* line 160, ../scss/main.scss */
+/* line 133, ../scss/main.scss */
+strong {
+  color: #00407a; }
+
+/* line 138, ../scss/main.scss */
 a {
-  text-decoration: none; }
-  /* line 163, ../scss/main.scss */
+  color: #00407a;
+  text-decoration: none;
+  -webkit-transition: color 0.5s;
+  -moz-transition: color 0.5s;
+  -o-transition: color 0.5s;
+  transition: color 0.5s; }
+  /* line 142, ../scss/main.scss */
+  a:hover {
+    text-decoration: underline; }
+  /* line 146, ../scss/main.scss */
   a:hover, a:visited {
-    color: #001d38; }
+    color: #c5b893; }
 
 /* wrappers */
-/* line 170, ../scss/main.scss */
+/* line 153, ../scss/main.scss */
 .outerWrapper, header,
 #header, nav, #main, footer {
   width: 100%;
@@ -148,43 +178,48 @@ a {
   padding: 0 0.5em 0 0.5em; }
 
 /* components */
-/* line 184, ../scss/main.scss */
-header,
-#header {
-  text-transform: uppercase;
-  position: relative; }
-  /* line 188, ../scss/main.scss */
-  header h1,
-  #header h1 {
-    padding: 0.5em 0; }
-  /* line 191, ../scss/main.scss */
-  header .dunkel,
-  #header .dunkel {
-    display: none;
-    background-color: #00407a;
-    height: 25%;
-    position: absolute;
-    left: 0;
-    top: 25%;
-    overflow: hidden;
-    width: 100%; }
-    /* line 200, ../scss/main.scss */
-    header .dunkel h1,
-    #header .dunkel h1 {
-      color: #fdf6e3;
-      margin-top: 0;
-      position: relative;
-      top: -100%;
-      padding: 0; }
+/* line 169, ../scss/main.scss */
+header h1,
+#header h1 {
+  font-size: 2.1em;
+  letter-spacing: 0.09em;
+  word-spacing: 0.12em;
+  padding: 0.5em 0 0 0;
+  margin-bottom: 0; }
+/* line 176, ../scss/main.scss */
+header h2,
+#header h2 {
+  font-size: 0.8em;
+  width: 80%;
+  text-align: right; }
 
-/* line 212, ../scss/main.scss */
-nav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0; }
-  /* line 216, ../scss/main.scss */
-  nav ul li {
-    display: inline; }
+/* line 186, ../scss/main.scss */
+nav {
+  margin-top: 2em;
+  margin-bottom: 2.2em; }
+  /* line 190, ../scss/main.scss */
+  nav ul {
+    list-style-type: none;
+    padding: 0 0 1em 0;
+    margin: 0;
+    border-bottom: 1px solid #00407a; }
+    /* line 195, ../scss/main.scss */
+    nav ul li {
+      display: inline-block;
+      width: 19.23077%;
+      text-align: center;
+      border-right: 1px solid #00407a; }
+      /* line 202, ../scss/main.scss */
+      nav ul li:last-child {
+        border: none; }
+      /* line 205, ../scss/main.scss */
+      nav ul li a {
+        display: inline-block;
+        vertical-align: middle; }
+  /* line 211, ../scss/main.scss */
+  nav #subnav {
+    border: none;
+    display: none; }
 
 /* ==========================================================================
    Helper classes
@@ -192,7 +227,7 @@ nav ul {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 240, ../scss/main.scss */
+/* line 235, ../scss/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden; }
@@ -200,7 +235,7 @@ nav ul {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 249, ../scss/main.scss */
+/* line 244, ../scss/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -215,7 +250,7 @@ nav ul {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 266, ../scss/main.scss */
+/* line 261, ../scss/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -228,7 +263,7 @@ nav ul {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 279, ../scss/main.scss */
+/* line 274, ../scss/main.scss */
 .invisible {
   visibility: hidden; }
 
@@ -243,7 +278,7 @@ nav ul {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 296, ../scss/main.scss */
+/* line 291, ../scss/main.scss */
 .clearfix:before,
 .clearfix:after {
   content: " ";
@@ -251,7 +286,7 @@ nav ul {
   display: table;
   /* 2 */ }
 
-/* line 301, ../scss/main.scss */
+/* line 296, ../scss/main.scss */
 .clearfix:after {
   clear: both; }
 
@@ -269,7 +304,7 @@ nav ul {
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
 @media print {
-  /* line 328, ../scss/main.scss */
+  /* line 323, ../scss/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -277,55 +312,55 @@ nav ul {
     box-shadow: none !important;
     text-shadow: none !important; }
 
-  /* line 336, ../scss/main.scss */
+  /* line 331, ../scss/main.scss */
   a,
   a:visited {
     text-decoration: underline; }
 
-  /* line 340, ../scss/main.scss */
+  /* line 335, ../scss/main.scss */
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-  /* line 344, ../scss/main.scss */
+  /* line 339, ../scss/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
-  /* line 353, ../scss/main.scss */
+  /* line 348, ../scss/main.scss */
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 358, ../scss/main.scss */
+  /* line 353, ../scss/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 363, ../scss/main.scss */
+  /* line 358, ../scss/main.scss */
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-  /* line 368, ../scss/main.scss */
+  /* line 363, ../scss/main.scss */
   tr,
   img {
     page-break-inside: avoid; }
 
-  /* line 372, ../scss/main.scss */
+  /* line 367, ../scss/main.scss */
   img {
     max-width: 100% !important; }
 
-  /* line 378, ../scss/main.scss */
+  /* line 373, ../scss/main.scss */
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 384, ../scss/main.scss */
+  /* line 379, ../scss/main.scss */
   h2,
   h3 {
     page-break-after: avoid; } }

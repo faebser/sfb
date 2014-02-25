@@ -95,27 +95,139 @@ textarea {
 
 $background: #FDF6E3;
 $text: #708891;
-$empashies: #00407A;
+$emphasize: #00407A;
 $hover: #001D38;
 $extra: #F4E6BF;
 
+html,
+body {
+    background-color: $background;
+}
+
+/* typo and font */
+
+@font-face {
+    font-family: 'nobileregular';
+    src: url('font/nobile/nobile-regular-webfont.eot');
+    src: url('font/nobile/nobile-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/nobile/nobile-regular-webfont.woff') format('woff'),
+         url('font/nobile/nobile-regular-webfont.ttf') format('truetype'),
+         url('font/nobile/nobile-regular-webfont.svg#nobileregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nobilemedium';
+    src: url('font/nobile/nobile-medium-webfont.eot');
+    src: url('font/nobile/nobile-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/nobile/nobile-medium-webfont.woff') format('woff'),
+         url('font/nobile/nobile-medium-webfont.ttf') format('truetype'),
+         url('font/nobile/nobile-medium-webfont.svg#nobilemedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.regular {
+    font-family: 'nobileregular', arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bold {
+    font-family: 'nobilemedium', arial, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: $emphasize;
+    @extend .bold;
+}
+
+p,
+a {
+    color: $text;
+    @extend .regular;
+    strong {
+        @extend .bold;
+    }
+}
+
+a {
+    text-decoration: none;
+    &:hover,
+    &:visited {
+        color: $hover;
+    }
+}
+
+/* wrappers */
+
+.outerWrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 0.5em 0 0.5em;
+}
+
+.innerWrapper {
+
+}
+
+/* components */
+
 header,
 #header {
-
+    text-transform: uppercase;
+    @extend .outerWrapper;
+    position: relative;
+    h1 {
+        padding: 0.5em 0;
+    }
+    .dunkel {
+        display: none;
+        background-color: $emphasize;
+        height: 25%;
+        position: absolute;
+        left: 0;
+        top: 25%;
+        overflow: hidden;
+        width: 100%;
+        h1 {
+            color: $background;
+            margin-top: 0;
+            position: relative;
+            top: -100%;
+            padding: 0;
+        }
+    }
 }
 
 nav {
-
+    @extend .outerWrapper;
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+            display: inline;
+        }
+    }
 }
 
 #main {
-
+    @extend .outerWrapper;
 }
-
 
 footer {
-
+    @extend .outerWrapper;
 }
+
+@import 'components';
 
 /* ==========================================================================
    Helper classes

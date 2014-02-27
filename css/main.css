@@ -83,10 +83,18 @@ textarea {
    ========================================================================== */
 /* compass imports */
 /* colors */
-/* line 108, ../scss/main.scss */
+/* line 107, ../scss/main.scss */
 html,
 body {
   background-color: #fdf6e3; }
+
+/* important stuff */
+/* apply a natural box layout model to all elements */
+/* line 114, ../scss/main.scss */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
 
 /* typo and font */
 @font-face {
@@ -122,38 +130,40 @@ a {
 .medium, h2,
 h3,
 h4, strong, header h2 a,
-#header h2 a {
+#header h2 a, nav #subnav li a,
+nav #subnav li a:visited {
   font-family: 'nobilemedium', arial, sans-serif;
   font-weight: normal;
   font-style: normal; }
 
 /* line 47, ../scss/_font.scss */
-.bold, h1 {
+.bold, h1, nav ul li a,
+nav ul li a:visited {
   font-family: 'nobilebold', arial, sans-serif;
   font-weight: normal;
   font-style: normal; }
 
-/* line 116, ../scss/main.scss */
+/* line 120, ../scss/main.scss */
 h1 {
   color: #00407a; }
 
-/* line 122, ../scss/main.scss */
+/* line 127, ../scss/main.scss */
 h2,
 h3,
 h4 {
   color: #00407a; }
 
-/* line 129, ../scss/main.scss */
+/* line 135, ../scss/main.scss */
 p,
 li,
 a {
   color: #708891; }
 
-/* line 133, ../scss/main.scss */
+/* line 139, ../scss/main.scss */
 strong {
   color: #00407a; }
 
-/* line 138, ../scss/main.scss */
+/* line 144, ../scss/main.scss */
 a {
   color: #00407a;
   text-decoration: none;
@@ -161,15 +171,15 @@ a {
   -moz-transition: color 0.5s;
   -o-transition: color 0.5s;
   transition: color 0.5s; }
-  /* line 142, ../scss/main.scss */
+  /* line 148, ../scss/main.scss */
   a:hover {
     text-decoration: underline; }
-  /* line 146, ../scss/main.scss */
+  /* line 152, ../scss/main.scss */
   a:hover, a:visited {
     color: #c5b893; }
 
 /* wrappers */
-/* line 153, ../scss/main.scss */
+/* line 159, ../scss/main.scss */
 .outerWrapper, header,
 #header, nav, #main, footer {
   width: 100%;
@@ -178,7 +188,7 @@ a {
   padding: 0 0.5em 0 0.5em; }
 
 /* components */
-/* line 169, ../scss/main.scss */
+/* line 175, ../scss/main.scss */
 header h1,
 #header h1 {
   font-size: 2.1em;
@@ -186,40 +196,129 @@ header h1,
   word-spacing: 0.12em;
   padding: 0.5em 0 0 0;
   margin-bottom: 0; }
-/* line 176, ../scss/main.scss */
+/* line 182, ../scss/main.scss */
 header h2,
 #header h2 {
   font-size: 0.8em;
   width: 80%;
   text-align: right; }
 
-/* line 186, ../scss/main.scss */
+/* line 192, ../scss/main.scss */
 nav {
   margin-top: 2em;
   margin-bottom: 2.2em; }
-  /* line 190, ../scss/main.scss */
+  /* line 196, ../scss/main.scss */
   nav ul {
     list-style-type: none;
-    padding: 0 0 1em 0;
+    padding: 0.75em 0 0.75em 0;
     margin: 0;
-    border-bottom: 1px solid #00407a; }
-    /* line 195, ../scss/main.scss */
+    border-bottom: 1px solid #00407a;
+    border-top: 1px solid #00407a; }
+    /* line 203, ../scss/main.scss */
     nav ul li {
-      display: inline-block;
-      width: 19.23077%;
+      display: block;
+      float: left;
+      width: 20%;
       text-align: center;
-      border-right: 1px solid #00407a; }
-      /* line 202, ../scss/main.scss */
+      padding: 0 1em 0 0; }
+      /* line 212, ../scss/main.scss */
       nav ul li:last-child {
-        border: none; }
-      /* line 205, ../scss/main.scss */
-      nav ul li a {
+        padding: 0; }
+      /* line 216, ../scss/main.scss */
+      nav ul li a,
+      nav ul li a:visited {
         display: inline-block;
-        vertical-align: middle; }
-  /* line 211, ../scss/main.scss */
+        vertical-align: middle;
+        width: 100%;
+        padding: 0.6em 0;
+        background-color: #fdf6e3;
+        color: #00407a;
+        -webkit-transition: all 0.75s;
+        -moz-transition: all 0.75s;
+        -o-transition: all 0.75s;
+        transition: all 0.75s; }
+        /* line 226, ../scss/main.scss */
+        nav ul li a:hover, nav ul li a.active,
+        nav ul li a:visited:hover,
+        nav ul li a:visited.active {
+          text-decoration: none;
+          background-color: #708891;
+          color: #fdf6e3; }
+  /* line 234, ../scss/main.scss */
   nav #subnav {
-    border: none;
-    display: none; }
+    border: none; }
+    /* line 236, ../scss/main.scss */
+    nav #subnav li {
+      display: inline-block;
+      width: auto; }
+      /* line 240, ../scss/main.scss */
+      nav #subnav li a,
+      nav #subnav li a:visited {
+        padding: 0.6em; }
+        /* line 244, ../scss/main.scss */
+        nav #subnav li a.active, nav #subnav li a:hover,
+        nav #subnav li a:visited.active,
+        nav #subnav li a:visited:hover {
+          background-color: transparent;
+          color: #c5b893; }
+
+/*** helpers ***/
+/* line 3, ../scss/_arrow.scss */
+.arrow_box {
+  position: relative;
+  border-bottom: 1px solid #00407a;
+  /*&:before {
+  	border-color: transparent;
+  	border-top-color: $emphasize;
+  	border-width: 37px;
+  	margin-left: -37px;
+  }*/ }
+  /* line 7, ../scss/_arrow.scss */
+  .arrow_box:before, .arrow_box:after {
+    top: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none; }
+  /* line 17, ../scss/_arrow.scss */
+  .arrow_box:after {
+    border-color: transparent;
+    border-top-color: #00407a;
+    border-width: 5px;
+    margin-left: -5px; }
+
+/*** components ***/
+/* line 3, ../scss/_main.scss */
+#main img {
+  max-width: 25%;
+  min-width: 25%; }
+  /* line 7, ../scss/_main.scss */
+  #main img.left {
+    float: left;
+    margin: 0 1em 1em 0; }
+  /* line 11, ../scss/_main.scss */
+  #main img.right {
+    float: right;
+    margin: 0 0 1em 1em; }
+  /* line 15, ../scss/_main.scss */
+  #main img.center {
+    float: none;
+    max-width: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto; }
+/* line 24, ../scss/_main.scss */
+#main ul {
+  list-style-type: square; }
+  /* line 26, ../scss/_main.scss */
+  #main ul li {
+    padding-bottom: 0.5em; }
+    /* line 28, ../scss/_main.scss */
+    #main ul li:last-child {
+      padding: 0; }
 
 /* ==========================================================================
    Helper classes
@@ -227,7 +326,7 @@ nav {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 235, ../scss/main.scss */
+/* line 263, ../scss/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden; }
@@ -235,7 +334,7 @@ nav {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 244, ../scss/main.scss */
+/* line 272, ../scss/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -250,7 +349,7 @@ nav {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 261, ../scss/main.scss */
+/* line 289, ../scss/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -263,7 +362,7 @@ nav {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 274, ../scss/main.scss */
+/* line 302, ../scss/main.scss */
 .invisible {
   visibility: hidden; }
 
@@ -278,17 +377,32 @@ nav {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 291, ../scss/main.scss */
-.clearfix:before,
-.clearfix:after {
+/* line 320, ../scss/main.scss */
+.clearfix:before, h1:before, h2:before,
+h3:before,
+h4:before, nav ul:before, .clearfix:after, h1:after, h2:after,
+h3:after,
+h4:after, nav ul:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+  clear: both; }
+
+/* line 328, ../scss/main.scss */
+.clearfix:before, h1:before, h2:before,
+h3:before,
+h4:before, nav ul:before,
+.clearfix:after,
+h1:after,
+h2:after,
+h3:after,
+h4:after,
+nav ul:after {
   content: " ";
   /* 1 */
   display: table;
   /* 2 */ }
-
-/* line 296, ../scss/main.scss */
-.clearfix:after {
-  clear: both; }
 
 /* ==========================================================================
    EXAMPLE Media Queries for Responsive Design.
@@ -304,7 +418,7 @@ nav {
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
 @media print {
-  /* line 323, ../scss/main.scss */
+  /* line 360, ../scss/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -312,55 +426,55 @@ nav {
     box-shadow: none !important;
     text-shadow: none !important; }
 
-  /* line 331, ../scss/main.scss */
+  /* line 368, ../scss/main.scss */
   a,
   a:visited {
     text-decoration: underline; }
 
-  /* line 335, ../scss/main.scss */
+  /* line 372, ../scss/main.scss */
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-  /* line 339, ../scss/main.scss */
+  /* line 376, ../scss/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
-  /* line 348, ../scss/main.scss */
+  /* line 385, ../scss/main.scss */
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 353, ../scss/main.scss */
+  /* line 390, ../scss/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 358, ../scss/main.scss */
+  /* line 395, ../scss/main.scss */
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-  /* line 363, ../scss/main.scss */
+  /* line 400, ../scss/main.scss */
   tr,
   img {
     page-break-inside: avoid; }
 
-  /* line 367, ../scss/main.scss */
+  /* line 404, ../scss/main.scss */
   img {
     max-width: 100% !important; }
 
-  /* line 373, ../scss/main.scss */
+  /* line 410, ../scss/main.scss */
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 379, ../scss/main.scss */
+  /* line 416, ../scss/main.scss */
   h2,
   h3 {
     page-break-after: avoid; } }

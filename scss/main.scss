@@ -95,7 +95,6 @@ textarea {
 
 @import "compass/css3/transition";
 
-
 /* colors */
 
 $background: #FDF6E3;
@@ -109,6 +108,11 @@ body {
     background-color: $background;
 }
 
+/* important stuff */
+
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 /* typo and font */
 
 @import "font";
@@ -116,12 +120,14 @@ body {
 h1 {
     color: $emphasize;
     @extend .bold;
+    @extend .clearfix;
 }
 h2,
 h3,
 h4 {
     color: $emphasize;
     @extend .medium;
+    @extend .clearfix;
 }
 
 p,
@@ -189,37 +195,59 @@ nav {
     margin-bottom: 2.2em;
     ul {
         list-style-type: none;
-        padding: 0 0 1em 0;
+        padding: 0.75em 0 0.75em 0;
         margin: 0;
-        border-bottom: 1px solid $emphasize; 
+        border-bottom: 1px solid $emphasize;
+        border-top: 1px solid $emphasize;
+        @extend .clearfix; 
         li {
-            display: inline-block;
-            width: (100%/5.2);
+            display: block;
+            float: left;
+            width: (100%/5);
             text-align: center;
-            border-right: 1px solid $emphasize;
+            //border-right: 1px solid $emphasize;
+            padding: 0 1em 0 0;
             //height: 0.3em;
             //vertical-align: middle;
             &:last-child {
-                border: none;
+                padding: 0;
             }
-            a {
+            a,
+            a:visited {
                 display: inline-block;
                 vertical-align: middle;
+                width: 100%;
+                padding: 0.6em 0;
+                background-color: $background;
+                color: $emphasize;
+                @include transition(all 0.75s);
+                @extend .bold;
+                &:hover,
+                &.active {
+                    text-decoration: none;
+                    background-color: $text;
+                    color: $background;
+                }
             }
         }
     }
     #subnav {
         border: none;
-        display: none;
+        li {
+            display: inline-block;
+            width: auto;
+            a,
+            a:visited {
+                padding: 0.6em;
+                @extend .medium;
+                &.active,
+                &:hover {
+                    background-color: transparent;
+                    color: $hover;
+                }
+            }
+        }
     }
-}
-
-#main {
-    @extend .outerWrapper;
-}
-
-footer {
-    @extend .outerWrapper;
 }
 
 @import 'components';
@@ -287,6 +315,15 @@ footer {
  *    `:before` to contain the top-margins of child elements.
  */
 
+ .clearfix {
+    &:before,
+    &:after {
+        content: " "; /* 1 */
+        display: table; /* 2 */
+        clear: both;
+    }
+ }
+
 .clearfix:before,
 .clearfix:after {
     content: " "; /* 1 */
@@ -294,7 +331,7 @@ footer {
 }
 
 .clearfix:after {
-    clear: both;
+    
 }
 
 /* ==========================================================================

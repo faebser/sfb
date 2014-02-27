@@ -1,0 +1,33 @@
+#main {
+    @extend .outerWrapper;
+    img {
+    	$margin: 1em;
+    	max-width: 25%;
+    	min-width: 25%;
+    	&.left {
+    		float: left;
+    		margin: 0 $margin $margin 0;
+    	}
+    	&.right {
+    		float: right;
+    		margin: 0 0 $margin $margin;
+    	}
+    	&.center {
+    		float: none;
+    		max-width: 100%;
+    		width: auto;
+    		display: block;
+    		margin: 0 auto;
+    	}
+    }
+
+    ul {
+    	list-style-type: square;
+    	li {
+    		padding-bottom: 0.5em;
+    		&:last-child {
+    			padding: 0;
+    		}
+    	}
+    }
+}

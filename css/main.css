@@ -130,7 +130,9 @@ a {
 .medium, h2,
 h3,
 h4, strong, header h2 a,
-#header h2 a, nav #subnav li a,
+header h2 a:visited,
+#header h2 a,
+#header h2 a:visited, nav #subnav li a,
 nav #subnav li a:visited {
   font-family: 'nobilemedium', arial, sans-serif;
   font-weight: normal;
@@ -147,23 +149,23 @@ nav ul li a:visited {
 h1 {
   color: #00407a; }
 
-/* line 129, ../scss/main.scss */
+/* line 128, ../scss/main.scss */
 h2,
 h3,
 h4 {
   color: #00407a; }
 
-/* line 138, ../scss/main.scss */
+/* line 135, ../scss/main.scss */
 p,
 li,
 a {
   color: #708891; }
 
-/* line 142, ../scss/main.scss */
+/* line 139, ../scss/main.scss */
 strong {
   color: #00407a; }
 
-/* line 147, ../scss/main.scss */
+/* line 144, ../scss/main.scss */
 a {
   color: #00407a;
   text-decoration: none;
@@ -171,15 +173,15 @@ a {
   -moz-transition: color 0.5s;
   -o-transition: color 0.5s;
   transition: color 0.5s; }
-  /* line 151, ../scss/main.scss */
+  /* line 148, ../scss/main.scss */
   a:hover {
     text-decoration: underline; }
-  /* line 155, ../scss/main.scss */
+  /* line 152, ../scss/main.scss */
   a:hover, a:visited {
     color: #c5b893; }
 
 /* wrappers */
-/* line 162, ../scss/main.scss */
+/* line 159, ../scss/main.scss */
 .outerWrapper, header,
 #header, nav #navInnerWrapper, #main, footer {
   width: 100%;
@@ -188,33 +190,46 @@ a {
   padding: 0 0.5em 0 0.5em; }
 
 /* components */
-/* line 176, ../scss/main.scss */
+/* line 173, ../scss/main.scss */
 header,
 #header {
   margin-bottom: 4em; }
-  /* line 180, ../scss/main.scss */
+  /* line 177, ../scss/main.scss */
   header h1,
   #header h1 {
     font-size: 2.1em;
     letter-spacing: 0.09em;
     word-spacing: 0.12em;
-    padding: 0.5em 0 0 0;
+    padding: 0.2em 0 0 0;
     margin-bottom: 0; }
-  /* line 187, ../scss/main.scss */
+    /* line 183, ../scss/main.scss */
+    header h1.second,
+    #header h1.second {
+      margin-top: 0;
+      padding-top: 0;
+      margin-left: 27px; }
+  /* line 189, ../scss/main.scss */
   header h2,
   #header h2 {
     font-size: 0.8em;
-    width: 80%;
+    width: 50%;
     text-align: right; }
+    /* line 194, ../scss/main.scss */
+    header h2 a,
+    header h2 a:visited,
+    #header h2 a,
+    #header h2 a:visited {
+      color: #00407a; }
 
-/* line 197, ../scss/main.scss */
+/* line 201, ../scss/main.scss */
 nav {
   position: absolute;
+  z-index: 0;
   top: 0.4em;
   left: 0;
   width: 100%;
   margin-bottom: 2.2em; }
-  /* line 207, ../scss/main.scss */
+  /* line 212, ../scss/main.scss */
   nav ul {
     width: 60%;
     float: right;
@@ -228,16 +243,16 @@ nav {
         height: 1px;
         @include background(linear-gradient(left, $background, $emphasize, $background));
     } */ }
-    /* line 223, ../scss/main.scss */
+    /* line 228, ../scss/main.scss */
     nav ul li {
       display: inline-block;
       width: auto;
       text-align: center;
       padding: 0 0.2em 0 0; }
-      /* line 233, ../scss/main.scss */
+      /* line 238, ../scss/main.scss */
       nav ul li:last-child {
         padding-right: 0; }
-      /* line 237, ../scss/main.scss */
+      /* line 242, ../scss/main.scss */
       nav ul li a,
       nav ul li a:visited {
         display: inline-block;
@@ -251,7 +266,7 @@ nav {
         -o-transition: all 0.75s;
         transition: all 0.75s;
         position: relative; }
-        /* line 247, ../scss/main.scss */
+        /* line 252, ../scss/main.scss */
         nav ul li a:before,
         nav ul li a:visited:before {
           -webkit-transition: background-color 0.75s;
@@ -271,36 +286,36 @@ nav {
           width: 100%;
           height: 0.4em;
           background-color: #fdf6e3; }
-        /* line 260, ../scss/main.scss */
+        /* line 265, ../scss/main.scss */
         nav ul li a:hover, nav ul li a.active,
         nav ul li a:visited:hover,
         nav ul li a:visited.active {
           text-decoration: none;
           background-color: #708891;
           color: #fdf6e3; }
-          /* line 265, ../scss/main.scss */
+          /* line 270, ../scss/main.scss */
           nav ul li a:hover:before, nav ul li a.active:before,
           nav ul li a:visited:hover:before,
           nav ul li a:visited.active:before {
-            background-color: #9bacb2; }
-  /* line 272, ../scss/main.scss */
+            background-color: #aab8bd; }
+  /* line 277, ../scss/main.scss */
   nav #subnav {
     display: none;
     border: none; }
-    /* line 276, ../scss/main.scss */
+    /* line 281, ../scss/main.scss */
     nav #subnav:before, nav #subnav:after {
       height: 0;
       background: none; }
-    /* line 280, ../scss/main.scss */
+    /* line 285, ../scss/main.scss */
     nav #subnav li {
       display: inline-block;
       width: auto;
       padding: 0; }
-      /* line 285, ../scss/main.scss */
+      /* line 290, ../scss/main.scss */
       nav #subnav li a,
       nav #subnav li a:visited {
         padding: 0.6em; }
-        /* line 289, ../scss/main.scss */
+        /* line 294, ../scss/main.scss */
         nav #subnav li a.active, nav #subnav li a:hover,
         nav #subnav li a:visited.active,
         nav #subnav li a:visited:hover {
@@ -336,35 +351,42 @@ nav {
     margin-left: -5px; }
 
 /*** components ***/
-/* line 7, ../scss/_main.scss */
+/* line 5, ../scss/_content.scss */
+#main #subnav {
+  display: none;
+  float: left;
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+/* line 14, ../scss/_content.scss */
 #main .text-section p:first-of-type {
   margin-top: 0; }
-/* line 11, ../scss/_main.scss */
+/* line 18, ../scss/_content.scss */
 #main img {
   max-width: 25%;
   min-width: 25%; }
-  /* line 15, ../scss/_main.scss */
+  /* line 22, ../scss/_content.scss */
   #main img.left {
     float: left;
     margin: 0 1em 1.5em 0; }
-  /* line 19, ../scss/_main.scss */
+  /* line 26, ../scss/_content.scss */
   #main img.right {
     float: right;
     margin: 0 0 1.5em 1em; }
-  /* line 23, ../scss/_main.scss */
+  /* line 30, ../scss/_content.scss */
   #main img.center {
     float: none;
     max-width: 100%;
     width: auto;
     display: block;
     margin: 0 auto; }
-/* line 32, ../scss/_main.scss */
+/* line 39, ../scss/_content.scss */
 #main ul {
   list-style-type: square; }
-  /* line 34, ../scss/_main.scss */
+  /* line 41, ../scss/_content.scss */
   #main ul li {
     padding-bottom: 0.5em; }
-    /* line 36, ../scss/_main.scss */
+    /* line 43, ../scss/_content.scss */
     #main ul li:last-child {
       padding: 0; }
 
@@ -387,7 +409,7 @@ footer {
 /*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
-/* line 308, ../scss/main.scss */
+/* line 313, ../scss/main.scss */
 .hidden {
   display: none !important;
   visibility: hidden; }
@@ -395,7 +417,7 @@ footer {
 /*
  * Hide only visually, but have it available for screenreaders: h5bp.com/v
  */
-/* line 317, ../scss/main.scss */
+/* line 322, ../scss/main.scss */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -410,7 +432,7 @@ footer {
  * Extends the .visuallyhidden class to allow the element to be focusable
  * when navigated to via the keyboard: h5bp.com/p
  */
-/* line 334, ../scss/main.scss */
+/* line 339, ../scss/main.scss */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -423,7 +445,7 @@ footer {
 /*
  * Hide visually and from screenreaders, but maintain layout
  */
-/* line 347, ../scss/main.scss */
+/* line 352, ../scss/main.scss */
 .invisible {
   visibility: hidden; }
 
@@ -438,12 +460,8 @@ footer {
  * 2. The use of `table` rather than `block` is only necessary if using
  *    `:before` to contain the top-margins of child elements.
  */
-/* line 365, ../scss/main.scss */
-.clearfix:before, h1:before, h2:before,
-h3:before,
-h4:before, nav #navInnerWrapper:before, nav ul:before, #main .text-section:before, .clearfix:after, h1:after, h2:after,
-h3:after,
-h4:after, nav #navInnerWrapper:after, nav ul:after, #main .text-section:after {
+/* line 370, ../scss/main.scss */
+.clearfix:before, nav #navInnerWrapper:before, nav ul:before, #main .text-section:before, .clearfix:after, nav #navInnerWrapper:after, nav ul:after, #main .text-section:after {
   content: " ";
   /* 1 */
   display: table;
@@ -464,7 +482,7 @@ h4:after, nav #navInnerWrapper:after, nav ul:after, #main .text-section:after {
    Inlined to avoid required HTTP connection: h5bp.com/r
    ========================================================================== */
 @media print {
-  /* line 395, ../scss/main.scss */
+  /* line 400, ../scss/main.scss */
   * {
     background: transparent !important;
     color: #000 !important;
@@ -472,55 +490,55 @@ h4:after, nav #navInnerWrapper:after, nav ul:after, #main .text-section:after {
     box-shadow: none !important;
     text-shadow: none !important; }
 
-  /* line 403, ../scss/main.scss */
+  /* line 408, ../scss/main.scss */
   a,
   a:visited {
     text-decoration: underline; }
 
-  /* line 407, ../scss/main.scss */
+  /* line 412, ../scss/main.scss */
   a[href]:after {
     content: " (" attr(href) ")"; }
 
-  /* line 411, ../scss/main.scss */
+  /* line 416, ../scss/main.scss */
   abbr[title]:after {
     content: " (" attr(title) ")"; }
 
   /*
    * Don't show links for images, or javascript/internal links
    */
-  /* line 420, ../scss/main.scss */
+  /* line 425, ../scss/main.scss */
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: ""; }
 
-  /* line 425, ../scss/main.scss */
+  /* line 430, ../scss/main.scss */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid; }
 
-  /* line 430, ../scss/main.scss */
+  /* line 435, ../scss/main.scss */
   thead {
     display: table-header-group;
     /* h5bp.com/t */ }
 
-  /* line 435, ../scss/main.scss */
+  /* line 440, ../scss/main.scss */
   tr,
   img {
     page-break-inside: avoid; }
 
-  /* line 439, ../scss/main.scss */
+  /* line 444, ../scss/main.scss */
   img {
     max-width: 100% !important; }
 
-  /* line 445, ../scss/main.scss */
+  /* line 450, ../scss/main.scss */
   p,
   h2,
   h3 {
     orphans: 3;
     widows: 3; }
 
-  /* line 451, ../scss/main.scss */
+  /* line 456, ../scss/main.scss */
   h2,
   h3 {
     page-break-after: avoid; } }

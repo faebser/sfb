@@ -2,6 +2,13 @@ $textSectionName: ".text-section";
 
 #main {
     @extend .outerWrapper;
+    #subnav {
+        display: none;
+        float: left;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+    }
     #{$textSectionName} {
         @extend .clearfix;
         p:first-of-type {

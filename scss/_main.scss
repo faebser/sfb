@@ -1,5 +1,13 @@
+$textSectionName: ".text-section";
+
 #main {
     @extend .outerWrapper;
+    #{$textSectionName} {
+        @extend .clearfix;
+        p:first-of-type {
+            margin-top: 0;
+        }
+    }
     img {
     	$margin: 1em;
     	max-width: 25%;
